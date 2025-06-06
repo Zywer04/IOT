@@ -41,7 +41,7 @@ def extract_features(y, sr):
 model = load('audio_classifier_20250325_160428.joblib')
 labels = ['Coughing', 'Snoring', 'Sneezing', 'Breathing']
 
-audio_path = 'sleep_audio.wav'
+audio_path = 'sleep_audio.mp3'
 y, sr = librosa.load(audio_path, sr=None)
 
 segment_duration = 2

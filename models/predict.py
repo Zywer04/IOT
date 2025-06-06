@@ -76,6 +76,13 @@ for i in range(total_segments):
 def format_time(seconds):
     return f"{int(seconds // 60):02d}:{int(seconds % 60):02d}"
 
+# 打印时间段
 print("检测到的打鼾时间段：")
 for start, end in snoring_segments:
     print(f"{format_time(start)} - {format_time(end)}")
+
+# 输出到文件
+with open("snoring_segments.txt", "w", encoding="utf-8") as f:
+    f.write("检测到的打鼾时间段：\n")
+    for start, end in snoring_segments:
+        f.write(f"{format_time(start)} - {format_time(end)}\n")

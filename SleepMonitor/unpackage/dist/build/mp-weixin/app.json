@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/sleep/index",
+    "pages/recorder/index",
+    "pages/consult/consult",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "睡眠监测",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#007AFF",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/sleep/index",
+        "text": "睡眠信息",
+        "iconPath": "static/tabbar/sleep.png",
+        "selectedIconPath": "static/tabbar/sleep-active.png"
+      },
+      {
+        "pagePath": "pages/recorder/index",
+        "text": "睡眠录音",
+        "iconPath": "static/tabbar/recorder.png",
+        "selectedIconPath": "static/tabbar/recorder-active.png"
+      },
+      {
+        "pagePath": "pages/consult/consult",
+        "text": "睡眠咨询",
+        "iconPath": "static/tabbar/consult.png",
+        "selectedIconPath": "static/tabbar/consult-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "static/tabbar/profile.png",
+        "selectedIconPath": "static/tabbar/profile-active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

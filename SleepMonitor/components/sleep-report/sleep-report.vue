@@ -159,23 +159,24 @@ export default {
 
 1. **整体睡眠趋势分析**：根据心率（hrate）、血氧饱和度（bo2）和体温（temper）的变化趋势，判断受试者是否存在明显的生理波动、异常状态或阶段性变化。
 2. **睡眠阶段推测**：结合心率和体温变化，推测何时进入浅睡、深睡、快速眼动（REM）等阶段，并解释依据。
-3. **健康预警信号**：如有异常体征（如高心率波动、低血氧、体温异常等），请指出具体时段并评估可能风险。
+3. **健康预警信号**：如有异常体征（如高心率波动、低血氧、室温异常等），请指出具体时段并评估可能风险。
 4. **改善建议**：如果有发现睡眠质量欠佳的迹象，请从环境调节、作息建议、运动饮食等方面给出针对性建议。
 
 
 平均心率：${this.averageHeartRate} bpm
 平均血氧：${this.averageBloodOxygen}%
-平均体温：${this.averageTemperature}°C
+平均室温：${this.averageTemperature}°C
 
 心率数据：${JSON.stringify(this.heartRateData)}
 血氧数据：${JSON.stringify(this.bloodOxygenData)}
-体温数据：${JSON.stringify(this.temperatureData)}
+室温数据：${JSON.stringify(this.temperatureData)}
 
 请从以下几个方面进行分析：
 1. 整体睡眠质量评估
-2. 各项指标的具体分析
-3. 可能存在的问题
-4. 具体的改善建议
+2. 睡眠阶段推测以及不合理的阶段预警
+3. 各项指标的具体分析
+4. 可能存在的问题
+5. 具体的改善建议
 
 请用专业但易懂的语言回答，并给出具体的建议，请不要使用markdown格式输出，这样会产生'#'和'*'字符，导致显示错误。`;
     },

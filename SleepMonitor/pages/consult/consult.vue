@@ -69,10 +69,13 @@
 - 不要给出具体的医疗诊断
 - 对于严重问题，建议及时就医
 - 回答要简洁明了，突出重点
-- 回答时不要用markdown格式来编辑字体加粗和标题等级,请用纯文本描述`
+- 回答时不要用markdown格式来编辑字体加粗和标题等级,请用纯文本描述`,
+				statusBarHeight: 0
 			}
 		},
 		onLoad() {
+			// 获取状态栏高度
+			this.statusBarHeight = uni.getSystemInfoSync().statusBarHeight;
 			// 从本地存储中读取主题设置
 			const savedTheme = uni.getStorageSync('theme');
 			this.isDarkTheme = savedTheme === 'dark';
@@ -226,6 +229,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 20rpx 30rpx;
+		padding-top: calc(var(--status-bar-height) + 20rpx);
 		background-color: #ffffff;
 		box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
 	}

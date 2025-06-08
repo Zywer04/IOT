@@ -3,11 +3,11 @@
 		<view class="monitor-card">
 			<view class="monitor-header">
 				<text class="monitor-title">网络监控</text>
-				<text class="monitor-subtitle">局域网设备数据</text>
+				<text class="monitor-subtitle">云端分析数据</text>
 			</view>
 			
 			<view class="monitor-controls">
-				<view class="input-group">
+				<!-- <view class="input-group">
 					<view class="input-row">
 						<input 
 							class="ip-input" 
@@ -28,14 +28,14 @@
 					</view>
 					<text v-if="ipError" class="error-text">{{ ipError }}</text>
 					<text v-if="portError" class="error-text">{{ portError }}</text>
-				</view>
+				</view> -->
 				
 				<view class="button-group">
 					<button 
 						class="action-button" 
 						:class="{ 'monitoring': isMonitoring }"
 						@click="toggleMonitoring"
-						:disabled="!isValidInput"
+						
 					>
 						{{ isMonitoring ? '停止监控' : '开始监控' }}
 					</button>
@@ -69,8 +69,7 @@
 			</view>
 			
 			<view class="monitor-tips">
-				<text class="tip-text">• 确保设备在同一局域网内</text>
-				<text class="tip-text">• 检查IP地址和端口是否正确</text>
+				<text class="tip-text">• 确保设备接入云端</text>
 				<text class="tip-text">• 数据将保存在本地存储中</text>
 			</view>
 		</view>
@@ -95,7 +94,7 @@ export default {
 			isMonitoring: false,
 			isConnected: false,
 			monitorTimer: null,
-			monitorInterval: 5000, // 5秒更新一次
+			monitorInterval: 1000*60*10, // 5秒更新一次
 			lastUpdateTime: null,
 			collectedData: [],
 			maxDataPoints: 100,
@@ -128,60 +127,60 @@ export default {
 		}
 	},
 	methods: {
-		validateIpAddress() {
-			const ip = this.ipAddress.trim();
-			if (!ip) {
-				this.ipError = '请输入IP地址';
-				return;
-			}
+		// validateIpAddress() {
+		// 	const ip = this.ipAddress.trim();
+		// 	if (!ip) {
+		// 		this.ipError = '请输入IP地址';
+		// 		return;
+		// 	}
 			
-			// IP地址格式验证
-			const ipPattern = /^(\d{1,3}\.){3}\d{1,3}$/;
-			if (!ipPattern.test(ip)) {
-				this.ipError = 'IP地址格式不正确';
-				return;
-			}
+		// 	// IP地址格式验证
+		// 	const ipPattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+		// 	if (!ipPattern.test(ip)) {
+		// 		this.ipError = 'IP地址格式不正确';
+		// 		return;
+		// 	}
 			
-			// 验证每个数字段是否在0-255范围内
-			const segments = ip.split('.');
-			const isValid = segments.every(segment => {
-				const num = parseInt(segment);
-				return num >= 0 && num <= 255;
-			});
+		// 	// 验证每个数字段是否在0-255范围内
+		// 	const segments = ip.split('.');
+		// 	const isValid = segments.every(segment => {
+		// 		const num = parseInt(segment);
+		// 		return num >= 0 && num <= 255;
+		// 	});
 			
-			if (!isValid) {
-				this.ipError = 'IP地址数值超出范围';
-				return;
-			}
+		// 	if (!isValid) {
+		// 		this.ipError = 'IP地址数值超出范围';
+		// 		return;
+		// 	}
 			
-			this.ipError = '';
-		},
+		// 	this.ipError = '';
+		// },
 		
-		validatePort() {
-			const port = this.port.trim();
-			if (!port) {
-				this.portError = '请输入端口号';
-				return;
-			}
+		// validatePort() {
+		// 	const port = this.port.trim();
+		// 	if (!port) {
+		// 		this.portError = '请输入端口号';
+		// 		return;
+		// 	}
 			
-			const portNum = parseInt(port);
-			if (isNaN(portNum) || portNum < 1 || portNum > 65535) {
-				this.portError = '端口号必须在1-65535之间';
-				return;
-			}
+		// 	const portNum = parseInt(port);
+		// 	if (isNaN(portNum) || portNum < 1 || portNum > 65535) {
+		// 		this.portError = '端口号必须在1-65535之间';
+		// 		return;
+		// 	}
 			
-			this.portError = '';
-		},
+		// 	this.portError = '';
+		// },
 		
 		toggleMonitoring() {
-			if (!this.isValidInput) {
-				uni.showToast({
-					title: '请先输入正确的IP地址和端口',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
+			// if (!this.isValidInput) {
+			// 	uni.showToast({
+			// 		title: '请先输入正确的IP地址和端口',
+			// 		icon: 'none',
+			// 		duration: 2000
+			// 	});
+			// 	return;
+			// }
 			
 			if (this.isMonitoring) {
 				this.stopMonitoring();
@@ -215,7 +214,7 @@ export default {
 		
 		async fetchData() {
 			try {
-				const url = `http://${this.ipAddress}:${this.port}/db-get`;
+				const url = `http://192.168.207.129:3000/db-get`;
 				console.log('正在获取数据:', url);
 				
 				const response = await new Promise((resolve, reject) => {

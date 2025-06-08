@@ -11,7 +11,7 @@
 			<!-- 用户信息卡片 -->
 			<view class="profile-card">
 				<view class="avatar-section">
-					<image class="avatar" src="/static/default-avatar.png" mode="aspectFill"></image>
+					<image class="avatar" src="/static/profile.jpg" mode="aspectFill"></image>
 					<view class="user-info">
 						<text class="username">用户名</text>
 						<text class="user-id">ID: 123456</text>
@@ -55,10 +55,13 @@
 	export default {
 		data() {
 			return {
+				statusBarHeight: 0,
 				isDarkTheme: false
 			}
 		},
 		onLoad() {
+			// 获取状态栏高度
+			this.statusBarHeight = uni.getSystemInfoSync().statusBarHeight;
 			// 从本地存储读取主题设置
 			const theme = uni.getStorageSync('theme');
 			this.isDarkTheme = theme === 'dark';
@@ -88,6 +91,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 20rpx 30rpx;
+		padding-top: calc(var(--status-bar-height) + 20rpx);
 		background-color: #ffffff;
 		box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
 	}
@@ -162,6 +166,7 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 8rpx;
+		margin-left: 30rpx;
 	}
 	
 	.username {

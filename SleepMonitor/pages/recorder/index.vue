@@ -120,7 +120,7 @@
 				},
 				snoreChartOpts: {
 					color: ["#1890FF"],
-					padding: [15, 15, 0, 15],
+					padding: [15, 15, 15, 15],
 					legend: {
 						show: false
 					},
@@ -155,10 +155,13 @@
 						}
 					}
 				},
-				allSnoreData: []
+				allSnoreData: [],
+				statusBarHeight: 0
 			}
 		},
 		onLoad() {
+			// 获取状态栏高度
+			this.statusBarHeight = uni.getSystemInfoSync().statusBarHeight;
 			// 从本地存储读取主题设置
 			const theme = uni.getStorageSync('theme');
 			this.isDarkTheme = theme === 'dark';
@@ -458,6 +461,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 20rpx 30rpx;
+		padding-top: calc(var(--status-bar-height) + 20rpx);
 		background-color: #ffffff;
 		box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
 	}

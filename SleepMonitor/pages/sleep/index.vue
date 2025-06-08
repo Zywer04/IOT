@@ -211,9 +211,12 @@
 					temperature: []
 				},
 				currentDataIndex: 0,
+				statusBarHeight: 0,
 	  };
 	},
 	onLoad() {
+	  // 获取状态栏高度
+	  this.statusBarHeight = uni.getSystemInfoSync().statusBarHeight;
 	  this.loadData();
 	},
 	methods: {
@@ -613,7 +616,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 30rpx;
+	padding: 20rpx 30rpx;
+	padding-top: calc(var(--status-bar-height) + 20rpx);
+	background-color: #ffffff;
+	box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
 	
   .page-title {
 	font-size: 36rpx;

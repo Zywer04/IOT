@@ -100,7 +100,7 @@
 						try {
 							// 从局域网获取鼾声数据
 							const response = await uni.request({
-								url: 'http://192.168.207.129:3000/productdata',
+								url: 'http://192.168.47.129:3000/productdata',
 								method: 'GET',
 								timeout: 5000 // 5秒超时
 							});

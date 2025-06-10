@@ -214,7 +214,7 @@ export default {
 		
 		async fetchData() {
 			try {
-				const url = `http://192.168.207.129:3000/db-get`;
+				const url = `http://192.168.47.129:3000/db-get`;
 				console.log('正在获取数据:', url);
 				
 				const response = await new Promise((resolve, reject) => {

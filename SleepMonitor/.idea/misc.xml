@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="22" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+=======
+  <component name="Black">
+    <option name="sdkName" value="D:\ANACONDA" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="D:\ANACONDA" project-jdk-type="Python SDK" />
+>>>>>>> zzy
+</project>

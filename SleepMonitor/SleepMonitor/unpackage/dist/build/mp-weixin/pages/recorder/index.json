@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "睡眠录音",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "audio-recorder": "../../components/audio-recorder/audio-recorder"
+  }
+}

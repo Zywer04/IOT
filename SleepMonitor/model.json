@@ -1,0 +1,90 @@
+{
+    // 模型基本信息
+    "model_info": {
+        // 模型训练时间，格式：YYYY-MM-DD HH:MM:SS
+        "training_time": "2024-03-25 14:40:17",
+        
+        // 模型支持的声音类别列表
+        "supported_classes": [
+            "Breathing",  // 呼吸声
+            "Coughing",  // 咳嗽声
+            "Sneezing",  // 打喷嚏声
+            "Snoring"    // 打鼾声
+        ]
+    },
+
+    // 模型评估指标
+    "evaluation": {
+        // 整体评估指标
+        "overall_metrics": {
+            // 总体准确率：正确预测的样本数占总样本数的比例
+            "accuracy": 0.75,
+            
+            // 宏平均：所有类别的平均值
+            "macro_avg": {
+                "precision": 0.75,  // 精确率平均值
+                "recall": 0.77,     // 召回率平均值
+                "f1-score": 0.74    // F1分数平均值
+            },
+            
+            // 加权平均：考虑每个类别的样本数量
+            "weighted_avg": {
+                "precision": 0.76,  // 加权精确率
+                "recall": 0.75,     // 加权召回率
+                "f1-score": 0.74    // 加权F1分数
+            }
+        },
+        
+        // 每个类别的详细评估指标
+        "class_metrics": {
+            "Breathing": {
+                "precision": 0.89,  // 精确率：预测为呼吸声的样本中，真正是呼吸声的比例
+                "recall": 0.80,     // 召回率：所有呼吸声样本中，被正确识别出的比例
+                "f1_score": 0.84,   // F1分数：精确率和召回率的调和平均数
+                "support": 10        // 测试集中该类别的样本数量
+            },
+            "Coughing": {
+                "precision": 0.56,
+                "recall": 0.83,
+                "f1_score": 0.67,
+                "support": 6
+            },
+            "Sneezing": {
+                "precision": 0.67,
+                "recall": 0.44,
+                "f1_score": 0.53,
+                "support": 9
+            },
+            "Snoring": {
+                "precision": 0.88,
+                "recall": 1.00,
+                "f1_score": 0.93,
+                "support": 7
+            }
+        }
+    },
+
+    // 模型参数配置
+    "model_config": {
+        // 随机森林分类器的参数
+        "random_forest": {
+            "n_estimators": 100,    // 决策树的数量
+            "random_state": 42,     // 随机种子，用于结果复现
+            "verbose": 1            // 训练过程显示级别
+        },
+        
+        // 特征提取参数
+        "feature_extraction": {
+            "mfcc": {
+                "n_mfcc": 13,       // MFCC特征维度
+                "duration": 3        // 音频采样时长（秒）
+            }
+        },
+        
+        // 数据集配置
+        "dataset": {
+            "test_size": 0.2,       // 测试集比例
+            "random_state": 42      // 数据集分割的随机种子
+        }
+    }
+} 

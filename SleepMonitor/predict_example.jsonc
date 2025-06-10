@@ -1,0 +1,30 @@
+{
+    "prediction": {                     // 预测结果
+        "class": "Breathing",           // 预测的声音类别：呼吸声、咳嗽声、打喷嚏声、打鼾声
+        "confidence": 0.85,             // 置信度：85%的把握是这个类别
+        "all_probabilities": {          // 所有类别的预测概率
+            "Breathing": 0.85,          // 85%的概率是呼吸声
+            "Coughing": 0.05,           // 5%的概率是咳嗽声
+            "Sneezing": 0.05,           // 5%的概率是打喷嚏声
+            "Snoring": 0.05             // 5%的概率是打鼾声
+        }
+    },
+    "audio_info": {                     // 音频文件信息
+        "file_path": "D:/data/test.ogg",// 文件完整路径
+        "file_name": "test.ogg",        // 文件名
+        "file_size": 123456,            // 文件大小（字节）
+        "duration": 3.0,                // 音频时长（秒）
+        "sample_rate": 22050,           // 采样率（Hz，每秒采样次数）
+        "n_samples": 66150              // 总采样点数（duration * sample_rate）
+    },
+    "model_info": {                     // 模型信息
+        "top_features": {               // 最重要的5个特征及其重要性
+            "mfcc_mean_1": 0.15,        // MFCC第1个特征的平均值，重要性15%
+            "spectral_centroids_mean": 0.12,  // 频谱质心平均值，重要性12%
+            "zero_crossing_mean": 0.10,  // 过零率平均值，重要性10%
+            "mfcc_std_2": 0.08,         // MFCC第2个特征的标准差，重要性8%
+            "rmse_mean": 0.07           // 声音强度平均值，重要性7%
+        },
+        "timestamp": "2024-03-25 15:30:45"  // 预测执行的时间
+    }
+} 
